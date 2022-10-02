@@ -1,0 +1,73 @@
+.buyNowBtn{
+    padding:8px 12px;
+    border-radius: 99px;
+    color:white;
+    background-color:#3e71fd;
+    text-decoration:none;
+    font-size: 14px;
+}
+
+.priceContainer{
+    width:100px;
+    display:flex;
+}
+
+/* My Discount Component */
+
+.percent-container{
+    padding:8px;
+    background-color:#3e71fd;
+}
+
+.discountText{
+    color:white;
+    font-size:20px
+}
+
+.msrp-price{
+    text-decoration: line-through;
+    font-size:12px;
+}
+
+.prices-container{
+    padding:8px
+}
+
+.sale-price{
+    font-size:16px
+}
+
+/* Steam Discount Component */
+
+.discount{
+    font-size:1.3em;
+    color:#A4D007;
+}
+
+.discount-container{
+    background-color:#4C6B22;
+    padding:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+}
+
+.price-container{
+    background-color:#324554;
+    padding:8px;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+}
+
+.oldPrice{
+    text-decoration: line-through;
+    font-size:12px;
+    color:#577180;
+}
+
+.newPrice{
+    font-size:16px;
+    color:#ACDBF5;
+}
