@@ -12,6 +12,17 @@
     display:flex;
 }
 
+.dialogImage{
+    height:auto; 
+    width:200px;
+}
+
+.ratingTextContainer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
 /* My Discount Component */
 
 .percent-container{
@@ -70,4 +81,19 @@
 .newPrice{
     font-size:16px;
     color:#ACDBF5;
+}
+
+@media screen and (max-width: 767px) {
+    .dialogImage{
+        height:auto; 
+        width:150px;
+    }
+    .ratingTextContainer{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items:flex-start;
+    }
+    .infoButton{
+        padding-left:0 !important;
+    }
 }
