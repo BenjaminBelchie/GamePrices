@@ -1,13 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './index.css';
+import { useLocation } from 'react-router-dom'
 
 const Navbar: React.FC = () => {
     const [isActive, setIsActive] = useState(false);
-    const [dealsActive, setdealsActive] = useState(true)
+    const [dealsActive, setdealsActive] = useState(false)
     const [platformActive, setplatformActive] = useState(false);
     const [searchActive, setsearchActive] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const location = useLocation();
+    
+
+    useEffect(() => {
+        switch(location.pathname){
+            case "/":
+                setdealsActive(true);
+                setplatformActive(false);
+                setsearchActive(false);
+                break;
+            case "/platform":
+                setplatformActive(true);
+                setdealsActive(false);
+                setsearchActive(false);
+                break;
+            case "/search":
+                setsearchActive(true);
+                setdealsActive(false);
+                setplatformActive(false);
+                break;
+        }
+    },[location.pathname])
+    
 
     return(
         <>
@@ -18,32 +42,20 @@ const Navbar: React.FC = () => {
             </nav>
             <nav>
                 <div className="container">
-                    <p className="nav-header">UK Game Deals</p>
+                    <Link className="logo" to={'/'}>
+                        <p className="nav-header">Game Deals</p>
+                    </Link>
+                    
                     <div className="menu">
                         <Link
                             to="/" 
-                            onClick={() => {
-                                setdealsActive(!dealsActive);
-                                setplatformActive(false);
-                                setsearchActive(false);
-                            }} 
                             className={`${dealsActive ? 'is-active' :''}`}>New Deals</Link>
-                        <a 
-                            href="#" 
-                            onClick={() => {
-                                setplatformActive(!platformActive);
-                                setdealsActive(false);
-                                setsearchActive(false);
-                            }} 
-                            className={`${platformActive ? 'is-active' :''}`}>Platform</a>
-                        <a 
-                            href="#" 
-                            onClick={() => {
-                                setsearchActive(!searchActive);
-                                setdealsActive(false);
-                                setplatformActive(false);
-                            }} 
-                            className={`${searchActive ? 'is-active' :''}`}>Search</a>
+                        <Link
+                            to="/platform" 
+                            className={`${platformActive ? 'is-active' :''}`}>Platform</Link>
+                        <Link
+                            to="/search" 
+                            className={`${searchActive ? 'is-active' :''}`}>Search</Link>
                     </div>
                     <button onClick={() => {
                         setIsActive(!isActive);

@@ -18,6 +18,11 @@
     justify-content: space-between;
 }
 
+.logo{
+    text-decoration: none;
+    color: white;
+}
+
 nav{
     position: fixed;
     top: 0;
